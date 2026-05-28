@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Yogesh K Bahl — Technical Manager at Stanford University. 24+ years in Oracle E-Business Suite, APEX, and PL/SQL. Two-time Stanford Spotlight Award winner.">
-<title>Yogesh K Bahl — Technical Manager@Stanford</title>
+<meta name="description" content="Yogesh K Bahl — IT Systems Analyst at Stanford University. 24+ years in Oracle E-Business Suite, APEX, and PL/SQL. Two-time Stanford Spotlight Award winner.">
+<title>Yogesh K Bahl — Senior Oracle Technology Expert</title>
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>𓂀</text></svg>">
 
@@ -15,24 +15,24 @@
 <style>
 /* ============================================================
    YKB · Editorial Portfolio
-   Theme: dark editorial — warm-black + cream + amber/copper
+   Theme: light editorial — cream + orage
    ============================================================ */
 
 :root {
   /* Palette */
-  --bg:        #0e0c0a;
-  --bg-soft:   #14110e;
-  --bg-card:   #1a1612;
-  --fg:        #f1ebe0;
-  --fg-strong: #fbf6ec;
-  --muted:     #8a8074;
-  --muted-2:   #5a5246;
-  --line:      #28221c;
-  --line-soft: #1e1915;
-  --accent:    #e8a052;        /* warm amber / oxidized brass */
-  --accent-2:  #c87333;        /* deeper copper */
-  --accent-soft: rgba(232, 160, 82, 0.12);
-  --wine:      #3a1e1c;
+  --bg:        #fbf3ea;
+  --bg-soft:   #fff7f0;
+  --bg-card:   #f4e7db;
+  --fg:        #251b14;
+  --fg-strong: #150c06;
+  --muted:     #8a7462;
+  --muted-2:   #ac9784;
+  --line:      #d8c5b8;
+  --line-soft: #ede1d8;
+  --accent:    #d87f2c;        /* warm orage */
+  --accent-2:  #b55f1f;        /* deeper orage */
+  --accent-soft: rgba(216, 127, 44, 0.12);
+  --wine:      #7a4027;
 
   /* Type */
   --display: 'Fraunces', 'Times New Roman', serif;
@@ -55,6 +55,30 @@
   /* Layout */
   --container: 1240px;
   --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  /* ════════════════════════════════════════════════════════════
+     ★ SECTION GAP — YOUR ONE KNOB TO CONTROL VERTICAL SPACING ★
+     ════════════════════════════════════════════════════════════
+     This value is the top AND bottom padding inside every <section>.
+     The visible gap between any two sections = 2 × this value.
+
+     How to change it (just edit the number(s) on the line below):
+
+       --section-gap: 12rem;                          ← fixed gap, simplest
+       --section-gap: clamp(10rem, 22vh, 18rem);      ← responsive (current)
+
+     clamp(MIN, PREFERRED, MAX):
+        • MIN        — never smaller than this  (small screens)
+        • PREFERRED  — what it'd be ideally     (scales with viewport)
+        • MAX        — never larger than this   (big screens)
+
+     Examples:
+        Tighter →   clamp(6rem, 12vh, 10rem)
+        Default →   clamp(10rem, 22vh, 18rem)
+        Roomier →   clamp(14rem, 28vh, 24rem)
+        Very wide → clamp(18rem, 35vh, 30rem)
+     ════════════════════════════════════════════════════════════ */
+  --section-gap: clamp(5rem, 11vh, 6rem);
 }
 
 /* ---------- Reset ---------- */
@@ -97,8 +121,8 @@ body::after {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 160, 82, 0.06), transparent 70%),
-    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(58, 30, 28, 0.4), transparent 60%);
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 160, 82, 0.08), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(216, 127, 44, 0.08), transparent 60%);
 }
 
 main, header, footer { position: relative; z-index: 2; }
@@ -122,7 +146,7 @@ main, header, footer { position: relative; z-index: 2; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(14, 12, 10, 0.7);
+  background: rgba(251, 243, 234, 0.78);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid transparent;
@@ -194,7 +218,7 @@ main, header, footer { position: relative; z-index: 2; }
   gap: 1rem;
   margin-bottom: 2.5rem;
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -317,9 +341,9 @@ main, header, footer { position: relative; z-index: 2; }
   color: var(--bg);
 }
 .btn--primary:hover {
-  background: var(--fg-strong);
+  background: var(--accent-2);
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(232, 160, 82, 0.25);
+  box-shadow: 0 8px 24px rgba(232, 160, 82, 0.35);
 }
 .btn--ghost {
   border-color: var(--line);
@@ -355,15 +379,25 @@ main, header, footer { position: relative; z-index: 2; }
    ============================================================ */
 
 section {
-  padding: clamp(4rem, 10vh, 8rem) 0;
+  padding: var(--section-gap) 0;
   scroll-margin-top: 90px;
   position: relative;
+}
+
+/* Thin divider drawn at the top of every section that follows another section.
+   Skips About (no preceding section) and Education (#education) per design. */
+section + section:not(#education):not(.quote)::before {
+  content: '';
+  display: block;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  margin-bottom: var(--section-gap);
 }
 
 .section__head {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-bottom: 3.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--line);
@@ -379,10 +413,11 @@ section {
 
 .section__num {
   font-family: var(--mono);
-  font-size: 0.85rem;
+  font-size: 1.15rem;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--fg);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -476,7 +511,7 @@ section {
   grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: var(--line);
-  margin: 4rem 0 0;
+  margin: 0 0 4rem;
   border: 1px solid var(--line);
 }
 @media (min-width: 720px) {
@@ -514,12 +549,18 @@ section {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+@media (min-width: 720px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .cards-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .edu-card {
-  padding: 2rem 1.75rem;
+  padding: 1.4rem 1.2rem;
   background: var(--bg-soft);
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -550,7 +591,7 @@ section {
 }
 .edu-card__title {
   font-family: var(--display);
-  font-size: var(--step-2);
+  font-size: var(--step-1);
   font-weight: 500;
   line-height: 1.2;
   color: var(--fg-strong);
@@ -788,7 +829,7 @@ section {
    ============================================================ */
 
 .quote {
-  padding: clamp(4rem, 10vh, 7rem) 0;
+  padding: 0;
   text-align: center;
 }
 .quote__text {
@@ -823,8 +864,11 @@ section {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+@media (min-width: 880px) {
+  .skills-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
 }
 
 .skill-group__title {
@@ -863,13 +907,10 @@ section {
    ============================================================ */
 
 .contact-block {
-  padding: 4rem 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
-}
-@media (min-width: 880px) {
-  .contact-block { grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
 }
 
 .contact__lead {
@@ -890,6 +931,13 @@ section {
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--line);
+}
+@media (min-width: 880px) {
+  .contact__links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+  }
 }
 .contact__link {
   display: flex;
@@ -967,6 +1015,7 @@ footer .accent { color: var(--accent); }
   outline-offset: 3px;
   border-radius: 2px;
 }
+
 </style>
 </head>
 
@@ -980,7 +1029,6 @@ footer .accent { color: var(--accent); }
     <li><a href="#education">Education</a></li>
     <li><a href="#certifications">Certs</a></li>
     <li><a href="#awards">Awards</a></li>
-    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -996,14 +1044,12 @@ footer .accent { color: var(--accent); }
     <span class="scroll"><span>Scroll</span><span class="arrow"></span></span>
   </div>
 
-  <span class="hero__pill">
-
   <h1 class="hero__name">Yogesh <span class="last">Bahl</span></h1>
 
-  <p class="hero__title">Oracle Technology Manager/Architect, building enterprise systems that scale across decades.</p>
+  <p class="hero__title">Oracle Technology Steward/Architect, building enterprise systems that scale across decades.</p>
 
   <div class="hero__meta">
-    <span>Palo Alto, CA</span>
+    <span>Stanford, CA</span>
     <span class="sep">·</span>
     <span>24+ Years</span>
     <span class="sep">·</span>
@@ -1014,37 +1060,17 @@ footer .accent { color: var(--accent); }
     <a class="btn btn--primary" href="mailto:ykbahl@stanford.edu">
       Get in touch <span class="arrow">↗</span>
     </a>
-    <a class="btn btn--ghost" href="#experience">
-      View experience <span class="arrow">→</span>
+    <a class="btn btn--ghost" href="#education">
+      View Education <span class="arrow">→</span>
     </a>
   </div>
 </header>
 
 <!-- =============== ABOUT =============== -->
 <section id="about" class="wrap">
-  <div class="section__head reveal">
-    <span class="section__num">01 <span class="dash">—</span> About</span>
-    <h2 class="section__title">Briefly, <em>about me</em></h2>
-  </div>
-
-  <div class="about reveal">
-    <p class="about__lead">
-      <em>Oracle E-Business Suite solution </em> architect, and steward <strong> at Stanford University </strong> with 24+ years of enterprise software experience. I design and deliver mission-critical systems, specialized in EBS customization, Servicenow, AI/ML integration, and Enterprise analytics.
-    </p>
-
-    <ul class="about__list">
-      <li><strong>Oracle E-Business Suite</strong> implementation, customization, and integration across SCM, P2P, and Financial tracks (15+ years).</li>
-      <li><strong>APEX 4.2 → 5.0</strong> development — interactive reports, dynamic actions, page processing validations, mobile app development.</li>
-      <li><strong>RICE objects</strong> — interfaces, conversions, custom reports, extensions — with deep architecture-design experience.</li>
-      <li><strong>O2C, P2P, Multi-Org</strong> process flows; system administration and performance tuning at scale.</li>
-      <li><strong>Team leadership</strong> — built and managed teams of up to 20 across onshore/offshore models.</li>
-      <li><strong>Business partnership</strong> — requirement analysis, technical solution design, effort estimation, root-cause analysis.</li>
-    </ul>
-  </div>
-
   <div class="stats reveal">
     <div class="stat">
-      <div class="stat__num">23<em>+</em></div>
+      <div class="stat__num">24<em>+</em></div>
       <div class="stat__label">Years in Oracle</div>
     </div>
     <div class="stat">
@@ -1060,16 +1086,57 @@ footer .accent { color: var(--accent); }
       <div class="stat__label">Team led</div>
     </div>
   </div>
+
+  <div class="section__head reveal">
+    <span class="section__num">01 <span class="dash">—</span> About</span>
+    <h2 class="section__title">Briefly, <em>about me</em></h2>
+  </div>
+
+  <div class="about reveal">
+    <p class="about__lead">
+      Oracle E-Business Suite solution architect, and steward at <em>Stanford University</em> with 24 years of enterprise software experience. I design and deliver mission-critical systems, specialized in EBS customization, Servicenow, AI/ML integration, and Enterprise analytics.
+    </p>
+
+    <ul class="about__list">
+      <li><strong>Oracle E-Business Suite</strong> implementation, customization, integration &amp; upgrades — 18+ years</li>
+      <li><strong>Oracle BI / OAS / OBIEE / BI Publisher</strong> — dashboards, enterprise reporting &amp; operational analytics</li>
+      <li><strong>Servicenow</strong> objects — CMDB, UI Policies, Glide, seeded APIs, Workflow &amp; Dashboards</li>
+      <li><strong>AI / ML</strong> enablement — Generative AI, RAG, LLMs, embeddings, vector search &amp; prompt engineering</li>
+      <li><strong>Informatica-supported</strong> ETL — workflows, mappings, data validation, reconciliation &amp; integration support</li>
+      <li><strong>Leadership</strong> — managed teams of up to 20 onsite/offshore delivery, mentoring &amp; stakeholder coordination</li>
+      <li><strong>Business Partnership</strong> — requirement analysis, technical solution design, effort estimation, root-cause analysis. </li>
+    </ul>
+  </div>
 </section>
 
 <!-- =============== EDUCATION =============== -->
 <section id="education" class="wrap">
+   <div class="section__head reveal">
+    <!-- <span class="section__num">02 <span class="dash">—</span> Education</span> -->
+    <!-- <h2 class="section__title">Where I <em>learned</em></h2> -->
+  </div>
   <div class="section__head reveal">
     <span class="section__num">02 <span class="dash">—</span> Education</span>
     <h2 class="section__title">Where I <em>learned</em></h2>
   </div>
 
   <div class="cards-grid reveal">
+    <article class="edu-card">
+      <span class="edu-card__icon">🤖</span>
+      <h3 class="edu-card__title">Executive PG — Data Science &amp; AI</h3>
+      <p class="edu-card__org">iHUB DivyaSampark, IIT Roorkee</p>
+      <p class="edu-card__date">India · with Intellipaat</p>
+      <span class="edu-card__tag">Executive PG</span>
+    </article>
+
+    <article class="edu-card">
+      <span class="edu-card__icon">🌲</span>
+      <h3 class="edu-card__title">Stanford Manager Academy</h3>
+      <p class="edu-card__org">Stanford University · Human Resources</p>
+      <p class="edu-card__date">August 2024</p>
+      <span class="edu-card__tag">Leadership Program</span>
+    </article>
+
     <article class="edu-card">
       <span class="edu-card__icon">🎓</span>
       <h3 class="edu-card__title">Master of Computer Application</h3>
@@ -1085,11 +1152,17 @@ footer .accent { color: var(--accent); }
       <p class="edu-card__date">India</p>
       <span class="edu-card__tag">Undergraduate</span>
     </article>
+
+
+
+    
+
   </div>
 </section>
 
 <!-- =============== CERTIFICATIONS =============== -->
 <section id="certifications" class="wrap">
+  
   <div class="section__head reveal">
     <span class="section__num">03 <span class="dash">—</span> Certifications</span>
     <h2 class="section__title">Formally <em>certified</em></h2>
@@ -1120,22 +1193,22 @@ footer .accent { color: var(--accent); }
     <li class="cert-item">
       <span class="cert-item__num">04</span>
       <div class="cert-item__body">
-        <strong>OA Framework Architecture</strong>
-        <span class="cert-item__meta">Oracle Corp, Bangalore</span>
+        <strong>Python Certification</strong>
+        <span class="cert-item__meta">IIT-Roorkee-Intellipaat</span>
       </div>
     </li>
     <li class="cert-item">
       <span class="cert-item__num">05</span>
       <div class="cert-item__body">
-        <strong>Oracle APEX</strong>
-        <span class="cert-item__meta">Focus Thread, Bangalore</span>
+        <strong>Oracle BI Analytics</strong>
+        <span class="cert-item__meta">Oracle Corporation</span>
       </div>
     </li>
     <li class="cert-item">
       <span class="cert-item__num">06</span>
       <div class="cert-item__body">
-        <strong>PMI PMP Certification</strong>
-        <span class="cert-item__meta">In Progress</span>
+        <strong>ServiceNow Certified System Administrator</strong>
+        <span class="cert-item__meta">ServiceNow, Inc.</span>
       </div>
     </li>
   </ul>
@@ -1147,17 +1220,26 @@ footer .accent { color: var(--accent); }
     <span class="section__num">04 <span class="dash">—</span> Recognition</span>
     <h2 class="section__title">Awards &amp; <em>achievements</em></h2>
   </div>
-
   <div class="awards reveal">
+     <article class="award">
+      <span class="award__year">2020</span>
+      <h3 class="award__title">Stanford University Spotlight Award</h3>
+      <p class="award__org">For participating in the HealthCheck implementation for COVID-19</p>
+    </article>
     <article class="award">
       <span class="award__year">2021</span>
       <h3 class="award__title">Stanford University Spotlight Award</h3>
       <p class="award__org">For excellent leadership and outstanding work driving the ADAPT Project</p>
     </article>
     <article class="award">
+      <span class="award__year">2025</span>
+      <h3 class="award__title">UIT Innovation Program — Awarded</h3>
+      <p class="award__org">Stanford Connect Alumni360 · Stanford University IT</p>
+    </article>
+    <article class="award">
       <span class="award__year">2020</span>
-      <h3 class="award__title">Stanford University Spotlight Award</h3>
-      <p class="award__org">For participating in the HealthCheck implementation for COVID-19</p>
+      <h3 class="award__title">UIT Innovation Program — Awarded</h3>
+      <p class="award__org">Technician Scheduling &amp; Dispatching Application · Spring 2020</p>
     </article>
     <article class="award">
       <span class="award__year">IBM</span>
@@ -1184,284 +1266,70 @@ footer .accent { color: var(--accent); }
 
 <!-- =============== QUOTE =============== -->
 <section class="quote wrap reveal" aria-hidden="true">
-  <p class="quote__text">Twenty-three years of turning enterprise complexity into systems that just work.</p>
+  <p class="quote__text">Twenty-four years of turning enterprise complexity into systems that just work.</p>
   <p class="quote__attr">— A career in Oracle technology</p>
-</section>
-
-<!-- =============== EXPERIENCE =============== -->
-<section id="experience" class="wrap">
-  <div class="section__head reveal">
-    <span class="section__num">05 <span class="dash">—</span> Experience</span>
-    <h2 class="section__title">Where I <em>worked</em></h2>
-  </div>
-
-  <div class="timeline">
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">Jun 2015 — Present</span>
-        <span class="job__location">Palo Alto, CA</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">IT Systems Analyst <em>III</em></h3>
-        <p class="job__company"><strong>Stanford University</strong> · eAM, Inventory, BOM, ADAPT</p>
-        <p class="job__desc">
-          Production support, maintenance, and upgrade of Oracle E-Business Suite (eAM, Inventory, custom modules). Architecting Stanford's Asset Management systems with deep integration to iJournals, PeopleSoft, and Accounts Receivables; building APEX dashboards and BI Publisher reports across the ADAPT program.
-        </p>
-        <ul class="job__bullets">
-          <li>Hands-on enhancements to billing system integration with iJournal, PeopleSoft, and Accounts Receivables.</li>
-          <li>Led E-Business Suite R12.2.6 upgrade and APEX 5.0 upgrade of custom applications.</li>
-          <li>Implemented Incorta reporting tool in eAM ITS; built ADAPT dashboards and reconciliation reports.</li>
-          <li>Maintain APEX UIs for cableplant, TR/TSO, PTA Rollover, and Work Order Operation Completion workbench.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">Oracle EBS R12.2.6</span>
-          <span class="chip">APEX 5.0</span>
-          <span class="chip">PL/SQL</span>
-          <span class="chip">BI Publisher</span>
-          <span class="chip">eAM</span>
-          <span class="chip">PeopleSoft</span>
-          <span class="chip">Incorta</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">Jan 2014 — Jun 2015</span>
-        <span class="job__location">Palo Alto, CA</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">Software <em>Engineer</em></h3>
-        <p class="job__company"><strong>MQR Technologies</strong> · Stanford ITS ATLAS Phase 2</p>
-        <p class="job__desc">
-          Engineered enhancements on EAM ITS billing integration with iJournal, PeopleSoft, and AR module. Designed application business logic, developed technology specifications, conducted code reviews, and supported APEX UIs across multiple Stanford applications.
-        </p>
-        <ul class="job__bullets">
-          <li>Developed Internal/External/Student billing integration from EAM to iJournal, Receivables, PeopleSoft using PL/SQL packages.</li>
-          <li>Supported AdobeFlex Scheduler, APEX UIs for cableplant, TR/TSO, PTA Rollover, and Work Order completion.</li>
-          <li>Architected conversion framework, custom EAM billing, reports, and interfaces.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">Oracle EBS R12</span>
-          <span class="chip">APEX 4.2</span>
-          <span class="chip">PL/SQL</span>
-          <span class="chip">AdobeFlex</span>
-          <span class="chip">PVCS</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">Nov 2008 — Dec 2013</span>
-        <span class="job__location">Palo Alto, CA · Bangalore · San Francisco</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">Sr. Tech Developer <em>&amp; Lead</em></h3>
-        <p class="job__company"><strong>Estuate Inc / Estuate Software</strong> · Stanford · Wells Fargo</p>
-        <p class="job__desc">
-          Five years of progressive responsibility — Oracle Programmer to Senior Tech Developer to Technical Lead — across landmark engagements: Stanford ITS EAM ATLAS, Wells Fargo Wachovia conversion, and Stanford CADMS. Architected onshore/offshore models, delivered millions of records of conversion, and built core APEX applications.
-        </p>
-        <ul class="job__bullets">
-          <li><strong>Wells Fargo OLM2/3/4/EAST1:</strong> Lead programmer on PL/SQL conversion projects migrating Wachovia Bank financial systems into Wells Fargo across multiple states.</li>
-          <li><strong>Stanford CADMS:</strong> Project Lead on the Capital Accounting &amp; Debt Management System — built APEX screens, Oracle Forms, and concurrent programs for expenditure and amortization calculation.</li>
-          <li><strong>Stanford EAM ATLAS:</strong> Technical Lead from offshore and onsite — DB triggers, Oracle standard API calls, conversion frameworks, error-logging systems for million-record processing.</li>
-          <li><strong>EAM Work Order Request &amp; Scheduler:</strong> Technical Lead on a custom application integrating with EAM &amp; INV for asset management across the Stanford campus.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">Oracle Apps 11.5.10</span>
-          <span class="chip">Oracle EBS R12</span>
-          <span class="chip">Oracle DB 10g/11g</span>
-          <span class="chip">APEX 3.1 / 4.0</span>
-          <span class="chip">Forms 6i</span>
-          <span class="chip">Reports 6i</span>
-          <span class="chip">PVCS</span>
-          <span class="chip">Clear Case</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">Feb 2008 — Oct 2008</span>
-        <span class="job__location">Pune, India</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">Advisory Systems Analyst <em>· Project Lead</em></h3>
-        <p class="job__company"><strong>IBM India Pvt Ltd</strong> · GLSCAPE for Southern Company Inc</p>
-        <p class="job__desc">
-          Led the Financial Modules track (GL, AP, iExpense, PO) and custom modules on the GLSCAPE project — streamlining Southern Company's financial systems with concurrent programs, packages, procedures, and PL/SQL units across XML reports and conversion utilities.
-        </p>
-        <ul class="job__bullets">
-          <li>Code review, code promotion/verification across PVCS and HP Migration Tool administration.</li>
-          <li>Coordinated onshore/offshore model and Rational Portfolio Management for work assignments.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">Oracle Apps 11.5.10</span>
-          <span class="chip">Oracle DB 9i</span>
-          <span class="chip">Sun Solaris</span>
-          <span class="chip">PVCS</span>
-          <span class="chip">AdobeFlex</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">Aug 2005 — Feb 2008</span>
-        <span class="job__location">Noida, India · San Jose, CA</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">Senior Software Engineer <em>· Team Lead</em></h3>
-        <p class="job__company"><strong>Computer Sciences Corporation (CSC)</strong> · Jupiter / IBIS for Sun Microsystems</p>
-        <p class="job__desc">
-          Single Point of Contact (SPOC) for Order Entry / Order Management / QP / INV and custom modules on Sun Microsystems' Jupiter and IBIS programs. Drove migration of forms and concurrent programs from 10.7 to 11.5.10, supporting Sun's pricing, fulfillment, and financial systems globally.
-        </p>
-        <ul class="job__bullets">
-          <li>Migration of forms 2.5 → 4.5 via f60gen utility, mapping and re-implementing per Oracle templates.</li>
-          <li>Performance tuning and root-cause analysis across reports, packages, procedures, and PL/SQL units.</li>
-          <li>Client interaction, requirement analysis, effort estimation, and supporting team members.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">Oracle Apps 10.7 / 11.5.10</span>
-          <span class="chip">Oracle DB 8i</span>
-          <span class="chip">Sun Solaris</span>
-          <span class="chip">PVCS</span>
-          <span class="chip">Reports 6i</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">May 2004 — Aug 2005</span>
-        <span class="job__location">Hyderabad · Bangalore</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">Senior Software <em>Engineer</em></h3>
-        <p class="job__company"><strong>Satyam Computer Services</strong> · Cisco Q2C Everest · Agere OTC</p>
-        <p class="job__desc">
-          Technical consultant on two parallel order-management migrations — Cisco's QTC business flow (10.7 → 11.5.9) and Agere Systems' Order to Cash customization. Specialised in Order Management, custom EC Engine modules, and forms/concurrent-program migration via f60gen.
-        </p>
-        <ul class="job__bullets">
-          <li>Customizing front-end forms, concurrent programs, alerts, and integration testing across multiple iterations.</li>
-          <li>Implemented error-logging and notification process per business rules for both clients.</li>
-        </ul>
-        <div class="chips">
-          <span class="chip">Oracle Apps 11.5.9</span>
-          <span class="chip">Oracle DB 9.2</span>
-          <span class="chip">HP-UX</span>
-          <span class="chip">Forms 6i</span>
-          <span class="chip">Reports 6i</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">Jan 2004 — May 2004</span>
-        <span class="job__location">Dewas, India</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">Analyst <em>/ Programmer</em></h3>
-        <p class="job__company"><strong>Tata International Ltd</strong> · In-house ERP &amp; Barcode Project</p>
-        <p class="job__desc">
-          Maintained an in-house ERP across Production, Sales Management, and Stores. Built a custom barcode automation system for the LFU department — order booking, cancellation, picking, tracking, and invoice processing — using Pro*C for sticker generation.
-        </p>
-        <div class="chips">
-          <span class="chip">Oracle 8.0</span>
-          <span class="chip">Forms 6i</span>
-          <span class="chip">Pro*C</span>
-          <span class="chip">PL/SQL</span>
-          <span class="chip">Windows NT</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="job reveal">
-      <div class="job__side">
-        <span class="job__date">Dec 2001 — Dec 2003</span>
-        <span class="job__location">Indore, India</span>
-      </div>
-      <div class="job__body">
-        <h3 class="job__role">Software <em>Programmer</em></h3>
-        <p class="job__company"><strong>Kinetic Motor Company Ltd</strong> · Spare Part Management System</p>
-        <p class="job__desc">
-          First role — developed and supported in-house systems for Spare Parts, Stocks &amp; Inventory, Sales Order Processing, and Planning &amp; Controls. Implemented barcode-driven inventory automation, scheduling concepts from PO receiving to shipping orders, and email-reporting via application.
-        </p>
-        <div class="chips">
-          <span class="chip">Oracle 8.0</span>
-          <span class="chip">Forms 6i</span>
-          <span class="chip">Pro*C</span>
-          <span class="chip">PL/SQL</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
 </section>
 
 <!-- =============== SKILLS =============== -->
 <section id="skills" class="wrap">
   <div class="section__head reveal">
-    <span class="section__num">06 <span class="dash">—</span> Skills</span>
+    <span class="section__num">05 <span class="dash">—</span> Skills</span>
     <h2 class="section__title">My <em>toolkit</em></h2>
   </div>
 
   <div class="skills-grid reveal">
 
     <div class="skill-group">
-      <h3 class="skill-group__title">Databases</h3>
-      <div class="skill-row"><span class="skill-row__name">Oracle 11g / 10g / 9i</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Oracle 8i / 6.3</span><span class="skill-row__level adv">Advanced</span></div>
-      <div class="skill-row"><span class="skill-row__name">PL/SQL</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">SQL Tuning</span><span class="skill-row__level exp">Expert</span></div>
-    </div>
-
-    <div class="skill-group">
-      <h3 class="skill-group__title">ERP &amp; Apps</h3>
-      <div class="skill-row"><span class="skill-row__name">Oracle EBS 11.5.10 / R12.2</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">OM · AR · INV · BOM · QP</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">AP · PA · EAM · HZ</span><span class="skill-row__level adv">Advanced</span></div>
-      <div class="skill-row"><span class="skill-row__name">Multi-Org Architecture</span><span class="skill-row__level exp">Expert</span></div>
-    </div>
-
-    <div class="skill-group">
       <h3 class="skill-group__title">Languages &amp; UI</h3>
-      <div class="skill-row"><span class="skill-row__name">PL/SQL · SQL</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Pro*C</span><span class="skill-row__level adv">Advanced</span></div>
-      <div class="skill-row"><span class="skill-row__name">APEX 4.2 / 5.0</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Forms 6i / Reports 6i</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">XML Publisher / Gateway</span><span class="skill-row__level adv">Advanced</span></div>
-      <div class="skill-row"><span class="skill-row__name">AdobeFlex</span><span class="skill-row__level adv">Advanced</span></div>
+      <div class="skill-row"><span class="skill-row__name">PL/SQL</span></div>
+      <div class="skill-row"><span class="skill-row__name">Python</span></div>
+      <div class="skill-row"><span class="skill-row__name">APEX 4.2 / 5.0</span></div>
+      <div class="skill-row"><span class="skill-row__name">Forms 6i / Reports 6i</span></div>
+      <div class="skill-row"><span class="skill-row__name">Pro*C · XML Publisher</span></div>
     </div>
 
     <div class="skill-group">
       <h3 class="skill-group__title">Tools &amp; Platforms</h3>
-      <div class="skill-row"><span class="skill-row__name">TOAD · SQL Developer · SQL Navigator</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">SQL*Loader · Import / Export</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">PVCS · Clear Case</span><span class="skill-row__level adv">Advanced</span></div>
-      <div class="skill-row"><span class="skill-row__name">Microsoft Visio</span><span class="skill-row__level adv">Advanced</span></div>
-      <div class="skill-row"><span class="skill-row__name">Unix · Windows NT</span><span class="skill-row__level exp">Expert</span></div>
+      <div class="skill-row"><span class="skill-row__name">TOAD · SQL Developer · Navigator</span></div>
+      <div class="skill-row"><span class="skill-row__name">SQL*Loader · Import / Export</span></div>
+      <div class="skill-row"><span class="skill-row__name">PVCS · Clear Case · Visio</span></div>
     </div>
 
     <div class="skill-group">
       <h3 class="skill-group__title">Domains</h3>
-      <div class="skill-row"><span class="skill-row__name">Order to Cash (O2C)</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Procure to Pay (P2P)</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Asset Management (eAM)</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Financial Conversions</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">RICE Object Development</span><span class="skill-row__level exp">Expert</span></div>
+      <div class="skill-row"><span class="skill-row__name">Order to Cash (O2C)</span></div>
+      <div class="skill-row"><span class="skill-row__name">Procure to Pay (P2P)</span></div>
+      <div class="skill-row"><span class="skill-row__name">Asset Management (eAM)</span></div>
+      <div class="skill-row"><span class="skill-row__name">Servicenow</span></div>
+    </div>
+
+    <div class="skill-group">
+      <h3 class="skill-group__title">AI &amp; ML</h3>
+      <div class="skill-row"><span class="skill-row__name">LangChain / LangGraph</span></div>
+      <div class="skill-row"><span class="skill-row__name">NLP &amp; LLM</span></div>
+      <div class="skill-row"><span class="skill-row__name">Machine Learning</span></div>
+      <div class="skill-row"><span class="skill-row__name">Streamlit</span></div>
     </div>
 
     <div class="skill-group">
       <h3 class="skill-group__title">Leadership</h3>
-      <div class="skill-row"><span class="skill-row__name">Team Building (up to 20)</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Onshore / Offshore Coordination</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Effort Estimation</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Architecture &amp; Solution Design</span><span class="skill-row__level exp">Expert</span></div>
-      <div class="skill-row"><span class="skill-row__name">Mentorship &amp; Training</span><span class="skill-row__level adv">Advanced</span></div>
+      <div class="skill-row"><span class="skill-row__name">Team Building (up to 20)</span></div>
+      <div class="skill-row"><span class="skill-row__name">Onshore / Offshore</span></div>
+      <div class="skill-row"><span class="skill-row__name">Architecture &amp; Solution Design</span></div>
+      <div class="skill-row"><span class="skill-row__name">Mentorship &amp; Training</span></div>
+    </div>
+    <div class="skill-group">
+      <h3 class="skill-group__title">Databases</h3>
+      <div class="skill-row"><span class="skill-row__name">Oracle 11g / 10g / 9i</span></div>
+      <div class="skill-row"><span class="skill-row__name">PL/SQL</span></div>
+      <div class="skill-row"><span class="skill-row__name">SQL Tuning</span></div>
+    </div>
+
+    <div class="skill-group">
+      <h3 class="skill-group__title">ERP &amp; Apps</h3>
+      <div class="skill-row"><span class="skill-row__name">Oracle EBS 11.5.10 / R12.2</span></div>
+      <div class="skill-row"><span class="skill-row__name">OM · AR · INV · BOM · QP</span></div>
+      <div class="skill-row"><span class="skill-row__name">Multi-Org Architecture</span></div>
     </div>
 
   </div>
@@ -1470,20 +1338,30 @@ footer .accent { color: var(--accent); }
 <!-- =============== CONTACT =============== -->
 <section id="contact" class="wrap">
   <div class="section__head reveal">
-    <span class="section__num">07 <span class="dash">—</span> Contact</span>
+    <span class="section__num">06 <span class="dash">—</span> Contact</span>
     <h2 class="section__title">Let's <em>connect</em></h2>
   </div>
 
   <div class="contact-block reveal">
-    <p class="contact__lead">
-      Open to senior <em>Oracle</em> consulting, enterprise architecture engagements, and technical leadership roles. Always interested in conversations about systems built to last.
-    </p>
-
     <div class="contact__links">
-      <a class="contact__link" href="mailto:ykbahl@stanford.edu">
+      <a class="contact__link" href="mailto:bahl.yogesh@gmail.com">
         <div>
           <span class="contact__platform">Email</span>
-          <span class="contact__name">ykbahl@stanford.edu</span>
+          <span class="contact__name">bahl.yogesh@gmail.com</span>
+        </div>
+        <span class="contact__arrow">↗</span>
+      </a>
+      <a class="contact__link" href="https://www.linkedin.com/in/yogeshbahl78/" target="_blank" rel="noopener">
+        <div>
+          <span class="contact__platform">LinkedIn</span>
+          <span class="contact__name">linkedin.com/in/yogesh-bahl</span>
+        </div>
+        <span class="contact__arrow">↗</span>
+      </a>
+      <a class="contact__link" href="https://github.com/yogeshkbahl" target="_blank" rel="noopener">
+        <div>
+          <span class="contact__platform">GitHub</span>
+          <span class="contact__name">github.com/yogeshkbahl</span>
         </div>
         <span class="contact__arrow">↗</span>
       </a>
@@ -1494,13 +1372,6 @@ footer .accent { color: var(--accent); }
         </div>
         <span class="contact__arrow">↗</span>
       </a>
-      <a class="contact__link" href="#">
-        <div>
-          <span class="contact__platform">Location</span>
-          <span class="contact__name">Palo Alto, California</span>
-        </div>
-        <span class="contact__arrow">→</span>
-      </a>
     </div>
   </div>
 </section>
@@ -1508,8 +1379,8 @@ footer .accent { color: var(--accent); }
 </main>
 
 <footer>
-  <span>© <span id="year"></span> <span class="accent">Yogesh K Bahl</span> · Senior Oracle Technology Architect</span>
-  <span>Palo Alto · MMXXVI</span>
+  <span>© <span id="year"></span> <span class="accent">Yogesh K Bahl</span> · Oracle Technology Manager/Architect</span>
+  <span>Stanford · MMXXVI</span>
 </footer>
 
 <script>
@@ -1556,6 +1427,7 @@ footer .accent { color: var(--accent); }
   }, { rootMargin: '0px 0px -80px 0px', threshold: 0.05 });
   revealEls.forEach((el) => reveal.observe(el));
 })();
+
 </script>
 
 </body>
